@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
+
+    <th:block th:fragment="content">
+
+        <h1 class="mt-4">Profile Page</h1>
+
+        <hr>
+        <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            YOSHIKI
+                        </div>
+                        <img th:src="@{/img/yoshiki3.jpg}" alt="" />
+                        <div class="card-body">
+                            <h5 class="card-title">Drums & Piano</h5>
+                            <p class="card-text">Yoshiki is a leader of X-japan. He plays drums and piano. He wrote all of X-japan's songs. </p>
+                            <a th:href="@{/photo/list}" class="btn btn-primary">More Pictures</a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            HIDE
+                        </div>
+                        <img th:src="@{/img/hide6.jpg}" alt="" />
+                        <div class="card-body">
+                            <h5 class="card-title">Guitar</h5>
+                            <p class="card-text">He is the main guitar-player of X-japan and also solo musicians. He made a catchphrase of X-japan.</p>
+                            <a th:href="@{/photo/list}"  class="btn btn-primary">More Pictures</a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            TOSHI
+                        </div>
+                        <img th:src="@{/img/toshi(5).jpg}" alt="" />
+                        <div class="card-body">
+                            <h5 class="card-title">Vocal</h5>
+                            <p class="card-text">Toshi is the vocalist of X-japans. when he was a childhood, He met Yoshiki and made a Band of X-japan.</p>
+                            <a th:href="@{/photo/list}" class="btn btn-primary">More Pictures</a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            TAIJI
+                        </div>
+                        <img th:src="@{/img/taiji.png}" alt="" />
+                        <div class="card-body">
+                            <h5 class="card-title">Bass</h5>
+                            <p class="card-text">Taiji is the all time bassist of Japan. He has good technicals and rock spirit.</p>
+                            <a th:href="@{/photo/list}" class="btn btn-primary">More Pictures</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            SUGIZO
+                        </div>
+                        <img th:src="@{/img/sugizo.jpg}" alt="" />
+                        <div class="card-body">
+                            <h5 class="card-title">Guitar & Violin</h5>
+                            <p class="card-text">Sugizo is a members of Luna-sea. when X-japan united, He participate of X-japans thanks to Yoshiki.</p>
+                            <a th:href="@{/photo/list}" class="btn btn-primary">More Pictures</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            PATA
+                        </div>
+                        <img th:src="@{/img/pata.jpg}" alt="" />
+                        <div class="card-body">
+                            <h5 class="card-title">Guitar</h5>
+                            <p class="card-text">Pata is the original members of X-japan. He is supporting X-japan with stable skills.</p>
+                            <a th:href="@{/photo/list}" class="btn btn-primary">More Pictures</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            HEATH
+                        </div>
+                        <img th:src="@{/img/heath.jpg}" alt="" />
+                        <div class="card-body">
+                            <h5 class="card-title">Bass</h5>
+                            <p class="card-text">Heath joined band instead of Taiji, He also supporting X-japan with stable skills.</p>
+                            <a th:href="@{/photo/list}" class="btn btn-primary">More Pictures</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            X-japan
+                        </div>
+                        <img th:src="@{/img/x-japan(2).jpg}" alt="" />
+                        <div class="card-body">
+                            <h5 class="card-title">X-japan</h5>
+                            <p class="card-text">X-japan is legendary of rock band of Japan. They lead the J-pop in the 90's.</p>
+                            <a th:href="@{/photo/list}" class="btn btn-primary">More Pictures</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <hr>
+        </div>
+
+        <style>
+
+        img {
+                width: 250px;
+                height: 180px;
+                object-fit: cover;
+                display: block;
+                margin: 0px auto;
+            }
+
+
+        </style>
+        </body>
+    </th:block>
+</th:block>

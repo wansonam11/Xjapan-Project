@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
+
+    <th:block th:fragment="content">
+
+        <h1 class="mt-4">Main Page
+
+            <span>
+                <a th:href="@{/board/list}">
+                    <button type="button" class="btn btn-outline-primary">Community Board
+                    </button>
+                </a>
+                <a th:href="@{/photo/list}">
+                    <button type="button" class="btn btn-outline-primary">Member's Photobook
+                    </button>
+                </a>
+
+            </span>
+        </h1>
+        <div class="col-11">
+            <div class="card">
+                <div class="card-header">
+                    7人のX-JAPAN
+                </div>
+                <img th:src="@{/img/xjapan.jpg}" alt="" />
+                <div class="card-body">
+                    <p class="card-text">• This is the X-japan's Un-Official Fan page. Whoever can share the story of X-Japan.<br>
+                        • ここはX-japanのファンがコミュニケーションをする場所です。</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr class="my-1">
+
+
+        <style>
+          img {
+
+                object-fit: cover;
+                    display: block;
+                margin: 0px auto;
+        }
+        </style>
+
+    </th:block>
+</th:block>

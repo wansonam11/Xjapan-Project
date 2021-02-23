@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{/layout/basic :: setContent(~{this :: content})}">
+
+<th:block th:fragment="content">
+
+    <h1 class="mt-4">Photo List Page
+        <span>
+            <a th:href="@{/photo/register}">
+                <button type="button" class="btn btn-outline-primary"> REGISTER </button>
+            </a>
+        </span>
+    </h1>
+
+    <form action="/photo/list" method="get" id="searchForm">
+            <input type="hidden" name="page" value="1">
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Picture & Title</th>
+            <th scope="col">Reply</th>
+            <th scope="col">Score</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dto : ${result.dtoList}">
+            <th scope="row">
+                <a th:href="@{/photo/read(pno = ${dto.pno},
+                    page= ${result.page})}">
+                    [[${dto.pno}]]
+                </a>
+            </th>
+            <td>
+                <a th:href="@{/photo/read(pno = ${dto.pno},
+                    page= ${result.page})}">
+                    <img th:if="${dto.imageDTOList.size() > 0 && dto.imageDTOList[0].path != null}"
+                         th:src="|/display?fileName=${dto.imageDTOList[0].getThumbnailURL()}|">
+                </a>
+                &nbsp  [[${dto.title}]]
+            </td>
+            <td>
+                &nbsp <span class="badge badge-warning">[[${dto.reviewCnt}]]</span>
+            </td>
+            <td>
+                &nbsp <span class="badge badge-danger">[[${dto.avg}]]</span>
+            </td>
+            <td>
+                [[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <ul class="pagination h-100 justify-content-center align-items-center">
+        <li class="page-item" th:if="${result.prev}">
+            <a class="page-link" th:href="@{/photo/list(page = ${result.start - 1},
+                type = ${pageRequestDTO.type},
+                keyword = ${pageRequestDTO.keyword})}" tabindex="-1">
+                    Previous
+            </a>
+        </li>
+        <li th:class=" 'page-item' + ${result.page == page ? 'active' : ''}"
+            th:each="page : ${result.pageList}">
+            <a class="page-link" th:href="@{/photo/list(page = ${page},
+                type = ${pageRequestDTO.type},
+                keyword = ${pageRequestDTO.keyword})}">
+                    [[${page}]]
+            </a>
+        </li>
+        <li class="page-item" th:if="${result.next}">
+            <a class="page-link" th:href="@{/photo/list(page = ${result.end + 1},
+                type = ${pageRequestDTO.type},
+                keyword = ${pageRequestDTO.keyword})}">
+                    Next
+            </a>
+        </li>
+    </ul>
+
+
+    <script th:inline="javascript">
+
+            var msg = [[${msg}]];
+
+            console.log(msg);
+
+            if(msg){
+                $(".modal").modal();
+            }
+            var searchForm = $("#searchForm");
+
+            $('.btn-search').click(function(e){
+
+                searchForm.submit();
+
+            });
+
+            $('.btn-clear').click(function(e){
+
+                searchForm.empty().submit();
+
+            });
+        </script>
+
+</th:block>
+</th:block>
+</html>
