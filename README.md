@@ -1,3 +1,6 @@
+![xjapan-community](https://user-images.githubusercontent.com/35058547/116643640-76f26c00-a9ac-11eb-8eed-0f4846b3233d.gif)
+
+
 # Xjapan-Project
 <코로나 감염자 지도 API 서비스>
 
